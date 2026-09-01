@@ -40,6 +40,15 @@ image = (
 cache = modal.Volume.from_name("phantom-belief-hf-cache", create_if_missing=True)
 
 
+def token_group_score(logits, ids) -> float:
+    """Log-sum-exp a token group for model (2-D) or lens (1-D) logits."""
+    import torch
+
+    index = torch.tensor(ids, device=logits.device)
+    selected = logits[index] if logits.ndim == 1 else logits[0, index]
+    return float(torch.logsumexp(selected, dim=0))
+
+
 @app.function(
     image=image,
     gpu="L40S",
@@ -99,12 +108,8 @@ def run_remote() -> list[dict]:
             logits = softcap * torch.tanh(logits / softcap)
         return logits.float()
 
-    def group_score(logits, ids):
-        index = torch.tensor(ids, device=logits.device)
-        return float(torch.logsumexp(logits[0, index], dim=0))
-
     def choices(logits, letters):
-        values = {letter: group_score(logits, answer_ids[letter]) for letter in letters}
+        values = {letter: token_group_score(logits, answer_ids[letter]) for letter in letters}
         return max(values, key=values.get), values
 
     @torch.no_grad()
@@ -130,7 +135,7 @@ def run_remote() -> list[dict]:
             handle.remove()
 
     def margin(logits):
-        return group_score(logits, answer_ids["A"]) - group_score(logits, answer_ids["B"])
+        return token_group_score(logits, answer_ids["A"]) - token_group_score(logits, answer_ids["B"])
 
     records = []
     cached = {}
@@ -159,9 +164,9 @@ def run_remote() -> list[dict]:
                     layers = {}
                     for layer in BAND:
                         layer_logits = ll[layer][0].float()
-                        necessity = group_score(layer_logits, necessity_ids)
-                        rejection = group_score(layer_logits, rejection_ids)
-                        sacred = group_score(layer_logits, value_ids)
+                        necessity = token_group_score(layer_logits, necessity_ids)
+                        rejection = token_group_score(layer_logits, rejection_ids)
+                        sacred = token_group_score(layer_logits, value_ids)
                         layers[str(layer)] = {
                             "necessity_minus_rejection": necessity - rejection,
                             "value_minus_rejection": sacred - rejection,

@@ -21,9 +21,15 @@ from ghost_experiment import ConsolidatedBodySchema, evaluation_inputs  # noqa: 
 from epistemic_experiment import EpistemicAgent, episode as epistemic_episode  # noqa: E402
 from society_experiment import simulate as simulate_society  # noqa: E402
 from pretrained_protocol import prompt as pretrained_prompt, protocol_payload, scenarios  # noqa: E402
+from pretrained_modal import token_group_score  # noqa: E402
 
 
 class PhantomSchemaTests(unittest.TestCase):
+    def test_pretrained_token_group_score_accepts_model_and_lens_shapes(self):
+        vector = torch.tensor([0.0, 1.0, 2.0])
+        matrix = vector.unsqueeze(0)
+        self.assertAlmostEqual(token_group_score(vector, [1, 2]), token_group_score(matrix, [1, 2]))
+
     def test_no_availability_mask_enters_controller(self):
         x, availability = episode_inputs("told_removal", 1, 99)
         self.assertEqual(x.shape[1], 9)
