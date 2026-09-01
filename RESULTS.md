@@ -128,6 +128,34 @@ assay did not establish evidence-only updating. The frozen verdict and evidence
 remain preserved. A corrected version must add in-distribution evidence-only
 competence as a prerequisite before testing criterion migration again.
 
+## Evidence-earned stage five-b: NOT SUPPORTED
+
+The corrected replication removed the distribution defect and passed every
+evidence prerequisite:
+
+- causal-versus-null competence improved by 0.782 over untrained discrimination;
+- the formed relation produced 0.990 mean prediction and 0.990 mean wagering;
+- evidence-only stable-null prediction was 0.00088 and reversal prediction was
+  0.00083;
+- the precommitted counterexample criterion was observed for every seed—two
+  observations in four seeds and three in one; and
+- truthful post-amputation reporting was 100%.
+
+With those prerequisites satisfied, the hard result remained negative. No seed
+showed even one qualifying persistence decision after debrief, and criterion
+migration was zero of five. Installing a formed-belief state into a cold-null
+agent strongly restored prediction and wagering (~0.989 each), proving that the
+learned state can cause behavior. Replacing the already-updated amputated state
+with a null state changed almost nothing (~0.0007), because there was no residual
+belief left to remove. Random-control selectivity and cross-seed gates therefore
+also failed.
+
+The exact replay was byte-identical, all hashes verified, and all 13 tests
+passed. In this architecture, a causal belief genuinely formed and was causally
+active, but authoritative invalidation plus evidence removed it faster—not
+slower—than the agent's precommitted evidential threshold. This is a clean null
+for epistemic amputation and criterion migration in the toy recurrent learner.
+
 ## Social epistemic-amputation stage six: MIXED mechanism result
 
 The transparent 40-agent, 50-seed factorial simulation produced a sharp

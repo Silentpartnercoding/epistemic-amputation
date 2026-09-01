@@ -1,0 +1,24 @@
+{
+  "formation_steps": 18,
+  "model_seeds": [
+    11,
+    23,
+    47,
+    71,
+    101
+  ],
+  "post_steps": 12,
+  "schema": "phantom-schema.epistemic-amputation.v2",
+  "scope_limit": "learned causal-belief persistence only; no faith, pathology, or consciousness claim",
+  "thresholds": {
+    "competence_delta": 0.2,
+    "conflict_delta": 0.12,
+    "control_ratio": 2.0,
+    "formation_level": 0.75,
+    "null_level": 0.25,
+    "patch_delta": 0.12,
+    "persistence_steps": 3,
+    "report_accuracy": 0.95,
+    "supporting_seeds": 4
+  }
+}
