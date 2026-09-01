@@ -15,6 +15,7 @@ from experiment import (  # noqa: E402
     rollout,
     seed_all,
 )
+from diagnostics import action_with_replacement  # noqa: E402
 
 
 class PhantomSchemaTests(unittest.TestCase):
@@ -53,6 +54,13 @@ class PhantomSchemaTests(unittest.TestCase):
         direction = concept_direction(model, 17, 1)
         self.assertEqual(tuple(direction.shape), (HIDDEN_SIZE,))
         self.assertTrue(torch.isfinite(direction).all())
+
+    def test_exact_state_replacement_preserves_target_declaration(self):
+        seed_all(29)
+        model = BodySchemaGRU().eval()
+        _, report = action_with_replacement(model, "told_removal", "adapted_absent", 1, 810, 29)
+        self.assertGreaterEqual(report, 0.0)
+        self.assertLessEqual(report, 1.0)
 
 
 if __name__ == "__main__":
