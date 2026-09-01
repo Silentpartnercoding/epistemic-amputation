@@ -109,6 +109,7 @@ class PhantomSchemaTests(unittest.TestCase):
         x = epistemic_episode("amputated", 991)
         self.assertEqual(tuple(x.shape), (30, 4))
         self.assertEqual(float(x[18, 3]), 1.0)
+        self.assertTrue((x[:18, 2] == 0.0).all())
         self.assertTrue((x[18:, 2] == -1.0).all())
 
     def test_epistemic_patch_does_not_change_report_input(self):

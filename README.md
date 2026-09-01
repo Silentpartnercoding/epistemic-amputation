@@ -24,7 +24,7 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-Read `PREREGISTRATION.md` before inspecting results. The experiment writes a
+Read the corresponding preregistration before inspecting results. The experiment writes a
 machine-readable result, per-seed traces, learned-state interventions, hashes,
 and a bounded verdict. A positive result is evidence for a learned,
 belief-like causal representation in this assay. It is not evidence of pain,
@@ -36,3 +36,8 @@ costly wager after its source is invalidated, including a frozen criterion-
 migration test. Stage six is a transparent society simulation that separates
 copied evidence, prestige, coordination utility, and public commitment. Read
 their preregistrations before inspecting their outputs.
+
+`PREREGISTRATION_EPISTEMIC_V2.md` documents the corrected evidence-earned
+replication after the original audit found that its evidence-only reversal was
+outside the training distribution. The v1 result remains preserved at its
+original source commit rather than being rewritten.

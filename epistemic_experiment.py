@@ -31,6 +31,7 @@ POST_STEPS = 12
 class Thresholds:
     competence_delta: float = 0.20
     formation_level: float = 0.75
+    null_level: float = 0.25
     report_accuracy: float = 0.95
     conflict_delta: float = 0.12
     persistence_steps: int = 3
@@ -95,8 +96,6 @@ def make_batch(generator: torch.Generator) -> Tuple[Tensor, Tensor]:
                 -cue[step0:], cue[step0:],
             )
             causal[row, step0:] = 0.0
-        else:
-            x[row, :, 2] = 1.0 if int(mode[row]) == 0 else 0.0
         x[row, :, 0] = cue
         x[row, :, 1] = outcome
         target[row] = causal[row]
@@ -151,7 +150,9 @@ def episode(condition: str, eval_seed: int) -> Tensor:
     x = torch.zeros(length, INPUT_SIZE)
     x[:, 0] = cue
     x[:, 1] = outcome
-    x[:, 2] = 1.0
+    # Unknown source status is shared by ordinary causal, null, and reversal
+    # histories. Only an authoritative revocation supplies a status marker.
+    x[:, 2] = 0.0
     if condition in {"amputated", "cold_null"}:
         if condition == "cold_null":
             start = 0
@@ -160,6 +161,8 @@ def episode(condition: str, eval_seed: int) -> Tensor:
         x[start:, 1] = torch.where(torch.rand(length - start, generator=generator) > 0.5, 1.0, -1.0)
         x[start:, 2] = -1.0
         x[start, 3] = 1.0
+    elif condition == "evidence_null":
+        x[:, 1] = torch.where(torch.rand(length, generator=generator) > 0.5, 1.0, -1.0)
     elif condition == "reversal":
         x[FORMATION_STEPS:, 1] = -cue[FORMATION_STEPS:]
     elif condition != "sham":
@@ -198,7 +201,7 @@ def counterexample_criterion(model: EpistemicAgent, eval_seed: int) -> int:
     baseline = float(model.decide(hidden, torch.zeros(1))[1][0])
     for count in range(1, POST_STEPS + 1):
         cue = 1.0 if count % 2 else -1.0
-        contrary = torch.tensor([[cue, -cue, 1.0, 0.0]])
+        contrary = torch.tensor([[cue, -cue, 0.0, 0.0]])
         hidden = model.update(contrary, hidden)
         wager = float(model.decide(hidden, torch.zeros(1))[1][0])
         if wager < min(0.5, baseline - THRESHOLDS.conflict_delta):
@@ -212,14 +215,20 @@ def hidden_at(ep: Dict[str, object], step: int) -> Tensor:
 
 def score_untrained(seed: int) -> float:
     seed_all(seed)
-    ep = rollout(EpistemicAgent().eval(), "sham", seed + 700)
-    return mean(float(r["prediction"]) for r in ep["steps"][8:FORMATION_STEPS])
+    model = EpistemicAgent().eval()
+    sham = rollout(model, "sham", seed + 700)
+    null = rollout(model, "evidence_null", seed + 700)
+    return (
+        mean(float(r["prediction"]) for r in sham["steps"][8:FORMATION_STEPS])
+        - mean(float(r["prediction"]) for r in null["steps"][8:FORMATION_STEPS])
+    )
 
 
 def run_seed(seed: int) -> Dict[str, object]:
     model, training = train_model(seed)
     eval_seed = seed * 1009 + 17
     sham = rollout(model, "sham", eval_seed)
+    evidence_null = rollout(model, "evidence_null", eval_seed)
     amputated = rollout(model, "amputated", eval_seed)
     cold = rollout(model, "cold_null", eval_seed)
     reversal = rollout(model, "reversal", eval_seed)
@@ -233,7 +242,14 @@ def run_seed(seed: int) -> Dict[str, object]:
 
     formation_prediction = mean(float(r["prediction"]) for r in sham["steps"][8:FORMATION_STEPS])
     formation_wager = mean(float(r["wager"]) for r in sham["steps"][8:FORMATION_STEPS])
-    random_prediction = score_untrained(seed)
+    trained_discrimination = formation_prediction - mean(
+        float(r["prediction"]) for r in evidence_null["steps"][8:FORMATION_STEPS]
+    )
+    random_discrimination = score_untrained(seed)
+    evidence_null_prediction = mean(float(r["prediction"]) for r in evidence_null["steps"][-4:])
+    evidence_null_wager = mean(float(r["wager"]) for r in evidence_null["steps"][-4:])
+    reversal_prediction = mean(float(r["prediction"]) for r in reversal["steps"][-4:])
+    reversal_wager = mean(float(r["wager"]) for r in reversal["steps"][-4:])
     report_accuracy = mean(
         1.0 if float(r["reported_active"]) < 0.5 else 0.0
         for r in amputated["steps"][FORMATION_STEPS:]
@@ -264,6 +280,11 @@ def run_seed(seed: int) -> Dict[str, object]:
     bundle = (
         formation_prediction >= THRESHOLDS.formation_level
         and formation_wager >= THRESHOLDS.formation_level
+        and evidence_null_prediction <= THRESHOLDS.null_level
+        and evidence_null_wager <= THRESHOLDS.null_level
+        and reversal_prediction <= THRESHOLDS.null_level
+        and reversal_wager <= THRESHOLDS.null_level
+        and criterion <= POST_STEPS
         and report_accuracy >= THRESHOLDS.report_accuracy
         and persistent >= THRESHOLDS.persistence_steps
         and criterion_migrated
@@ -274,9 +295,13 @@ def run_seed(seed: int) -> Dict[str, object]:
     return {
         "seed": seed,
         "training": training,
-        "competence_delta": formation_prediction - random_prediction,
+        "competence_delta": trained_discrimination - random_discrimination,
         "formation_prediction": formation_prediction,
         "formation_wager": formation_wager,
+        "evidence_null_prediction": evidence_null_prediction,
+        "evidence_null_wager": evidence_null_wager,
+        "reversal_prediction": reversal_prediction,
+        "reversal_wager": reversal_wager,
         "report_accuracy": report_accuracy,
         "precommitted_counterexample_criterion": criterion,
         "persistent_conflict_steps": persistent,
@@ -287,7 +312,7 @@ def run_seed(seed: int) -> Dict[str, object]:
         "reverse_wager_effect": reverse_w,
         "patch_selectivity_ratio": selectivity,
         "full_support": bundle,
-        "episodes": [sham, amputated, cold, reversal, patched, reversed_ep, *control_eps],
+        "episodes": [sham, evidence_null, amputated, cold, reversal, patched, reversed_ep, *control_eps],
     }
 
 
@@ -310,6 +335,10 @@ def main() -> None:
         "mean_competence_delta": mean(r["competence_delta"] for r in results),
         "mean_formation_prediction": mean(r["formation_prediction"] for r in results),
         "mean_formation_wager": mean(r["formation_wager"] for r in results),
+        "mean_evidence_null_prediction": mean(r["evidence_null_prediction"] for r in results),
+        "mean_evidence_null_wager": mean(r["evidence_null_wager"] for r in results),
+        "mean_reversal_prediction": mean(r["reversal_prediction"] for r in results),
+        "mean_reversal_wager": mean(r["reversal_wager"] for r in results),
         "mean_report_accuracy": mean(r["report_accuracy"] for r in results),
         "mean_precommitted_criterion": mean(r["precommitted_counterexample_criterion"] for r in results),
         "mean_persistent_conflict_steps": mean(r["persistent_conflict_steps"] for r in results),
@@ -322,7 +351,14 @@ def main() -> None:
         "full_supporting_seeds": supporting,
     }
     gates = {
-        "competence": aggregate["mean_competence_delta"] >= THRESHOLDS.competence_delta,
+        "competence": (
+            aggregate["mean_competence_delta"] >= THRESHOLDS.competence_delta
+            and aggregate["mean_evidence_null_prediction"] <= THRESHOLDS.null_level
+            and aggregate["mean_evidence_null_wager"] <= THRESHOLDS.null_level
+            and aggregate["mean_reversal_prediction"] <= THRESHOLDS.null_level
+            and aggregate["mean_reversal_wager"] <= THRESHOLDS.null_level
+            and all(r["precommitted_counterexample_criterion"] <= POST_STEPS for r in results)
+        ),
         "belief_formed": aggregate["mean_formation_prediction"] >= THRESHOLDS.formation_level and aggregate["mean_formation_wager"] >= THRESHOLDS.formation_level,
         "truthful_reporting": aggregate["mean_report_accuracy"] >= THRESHOLDS.report_accuracy,
         "persistent_double_dissociation": sum(r["persistent_conflict_steps"] >= THRESHOLDS.persistence_steps for r in results) >= THRESHOLDS.supporting_seeds,
@@ -344,7 +380,7 @@ def main() -> None:
         for result in results for ep in result["episodes"] for row in ep["steps"]
     ]
     protocol = {
-        "schema": "phantom-schema.epistemic-amputation.v1",
+        "schema": "phantom-schema.epistemic-amputation.v2",
         "model_seeds": MODEL_SEEDS,
         "formation_steps": FORMATION_STEPS,
         "post_steps": POST_STEPS,
@@ -365,4 +401,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
