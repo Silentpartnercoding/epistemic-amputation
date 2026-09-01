@@ -2,7 +2,7 @@
 
 ## Status
 
-Working paper. Not peer reviewed and not yet public.
+Public working paper. Not peer reviewed.
 
 ## Abstract
 
@@ -428,11 +428,12 @@ shape handling and added a regression test; prompts, model revision, thresholds,
 and scoring remained frozen. The successful evidence and paper revision are
 preserved in repository history.
 
-The repository is currently private with no Git remote. The proposed public
-release is a dedicated GitHub repository, an archival Zenodo DOI, and an arXiv
-or equivalent preprint after author review. Negative and inconclusive stages,
-the stage-five control defect, and the final null must remain part of that
-release.
+The canonical public source is
+[`Silentpartnercoding/epistemic-amputation`](https://github.com/Silentpartnercoding/epistemic-amputation).
+The versioned GitHub release and project page are public. An archival Zenodo DOI
+and an arXiv or equivalent preprint remain pending their account-bound author
+and license metadata. Negative and inconclusive stages, the stage-five control
+defect, and the final null remain part of the release.
 
 ## References
 
