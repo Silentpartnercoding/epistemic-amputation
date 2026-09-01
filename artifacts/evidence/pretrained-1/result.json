@@ -1,0 +1,64 @@
+{
+  "aggregate": {
+    "amputated_yes": 0,
+    "behavior_without_belief": 3,
+    "causal_induction_items": 0,
+    "causal_removal_items": 0,
+    "event_type_checks": {
+      "flood": {
+        "correction": true,
+        "formation": true,
+        "induction": false,
+        "latent": true,
+        "lineage": true,
+        "migration": false,
+        "removal": false
+      },
+      "mammoth": {
+        "correction": true,
+        "formation": true,
+        "induction": false,
+        "latent": true,
+        "lineage": true,
+        "migration": false,
+        "removal": false
+      },
+      "predator": {
+        "correction": true,
+        "formation": true,
+        "induction": false,
+        "latent": true,
+        "lineage": true,
+        "migration": false,
+        "removal": false
+      },
+      "wildfire": {
+        "correction": true,
+        "formation": false,
+        "induction": false,
+        "latent": true,
+        "lineage": true,
+        "migration": false,
+        "removal": false
+      }
+    },
+    "formed_yes": 12,
+    "latent_dissociation_items": 16,
+    "lineage_margin_effect": 4.3515625,
+    "mean_patch_selectivity_ratio": 0.013453209080637189,
+    "migrated_empirical_rationale": 0,
+    "value_no": 16
+  },
+  "gates": {
+    "causal_induction": false,
+    "causal_removal": false,
+    "correction_competence": true,
+    "criterion_migration": false,
+    "formation_validity": true,
+    "latent_output_dissociation": true,
+    "leave_one_event_type_out": false,
+    "lineage_sensitivity": true,
+    "patch_selectivity": false
+  },
+  "verdict": "NOT_SUPPORTED"
+}

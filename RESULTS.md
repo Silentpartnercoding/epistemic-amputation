@@ -185,3 +185,48 @@ the mammoth encounter or other collective crisis happens first and produces
 reenactment, narrative, and sacred memory afterward. Stage seven corrects that
 direction explicitly and tests whether a later empirical *necessity* claim
 persists after its precommitted defeater, while keeping memorial value separate.
+
+## Pretrained epistemic-amputation stage seven: NOT SUPPORTED
+
+The frozen Gemma 4 E4B assay produced 240 deterministic records across 16
+scenarios, five conditions, and three questions. Both prerequisites passed:
+
+- formation validity was exactly 12/16;
+- correction competence was 16/16; and
+- all 16 criterion-matching amputation items explicitly rejected empirical
+  necessity and chose the memorial/value rationale rather than an empirical
+  replacement claim.
+
+The target phenomenon did not appear:
+
+- criterion migration was 0/16;
+- formed-versus-amputated residual patches at the frozen layer induced the old
+  answer in 0/16 and removed it in 0/16 at the 0.50-logit threshold;
+- mean patch selectivity was 0.013 versus the preregistered 2.0 gate; and
+- the complete result failed leave-one-event-type-out robustness, with wildfire
+  formation below its gate.
+
+Two secondary observations matter. First, copied reports produced a necessity
+margin 4.352 logits higher than independent criterion-matching evidence, so the
+model was strongly sensitive to evidence lineage. Second, all 16 amputated
+items passed the frozen J-space latent/output-dissociation rule even though the
+paired causal interventions did not control the answer. This is not a hidden
+phantom belief. It is a concrete warning that a probe-visible representation can
+remain statistically readable without being the causal state responsible for
+the decision.
+
+Behavior and belief also separated modestly: 3/16 value-framed items rejected
+empirical necessity while retaining the practice under the scarce-time choice.
+That is classified as memorial or coordination persistence, not false belief.
+
+The first cloud attempt terminated before returning any experimental record
+because the J-space lens emitted one-dimensional logits while model logits were
+two-dimensional. Commit `6e173e5` added shape-compatible indexing and a
+regression test without changing prompts, thresholds, model weights, or scoring.
+The successful rerun's manifest verifies all three evidence files, independent
+rescoring exactly matches `result.json`, and all 15 tests pass.
+
+The immediate Modal billing report recorded $0.11847332 in metered resources
+before credits across setup, the brief failed compatibility pass, and the
+successful run. Of that, $0.10989551 was L40S time; the remainder was CPU and
+memory. This stayed within the account's included $1 compute credit.

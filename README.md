@@ -21,6 +21,7 @@ python3 -m venv .venv
 .venv/bin/python ghost_experiment.py --output artifacts/runs/stage4
 .venv/bin/python epistemic_experiment.py --output artifacts/runs/epistemic
 .venv/bin/python society_experiment.py --output artifacts/runs/society
+.venv/bin/modal run pretrained_modal.py --output artifacts/evidence/pretrained-1
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -47,3 +48,9 @@ using the public J-space lens. `PREREGISTRATION_PRETRAINED.md` freezes the desig
 `pretrained_modal.py` runs it on an L40S after Modal access is configured; the
 pinned model and lens are public. `PAPER.md` is the working paper and `PUBLICATION.md` records the
 proposed public-release path. None of this repository is public yet.
+
+The completed stage-seven verdict is `NOT_SUPPORTED`. The model corrected its
+explicit empirical answer in all 16 amputation cases. Although the J-space
+readout met the frozen latent-dissociation rule, the residual interventions did
+not causally restore or remove the answer, so the readout is not evidence of a
+causally controlling phantom belief.

@@ -18,8 +18,12 @@ authoritative invalidation; all five agents updated faster, not slower, than
 that criterion. A transparent 40-agent simulation showed why outward behavior
 is insufficient evidence of belief: lineage-naive duplicate testimony preserved
 false private belief, whereas coordination and commitment preserved public
-ritual after private belief was corrected. We preregister a final test in a
-pretrained language model using J-space residual readouts and causal patches.
+ritual after private belief was corrected. A final preregistered Gemma 4 assay
+passed formation and correction controls but returned `NOT_SUPPORTED`: all 16
+criterion-matching defeaters produced explicit belief correction, and paired
+residual patches did not causally restore or remove the old answer. J-space
+readouts showed a latent/output dissociation, but the failed interventions
+demonstrate why a probe signal alone is not evidence of a phantom belief.
 
 ## 1. Research question
 
@@ -89,12 +93,26 @@ be produced by corrected belief plus social utility, not a phantom belief.
 
 ## 5. Pretrained-model experiment
 
-The final preregistered stage uses Gemma 4 E4B at its J-space lens revision. It
-tests event-born empirical necessity claims, exact precommitted defeaters,
-independent versus copied evidence, and non-empirical value retention. Behavioral
-forced choices are combined with answer-onset J-space readouts and bidirectional
-residual patches. The design and frozen thresholds are in
-`PREREGISTRATION_PRETRAINED.md`.
+The final preregistered stage used Gemma 4 E4B at revision `fee6332c1aba` and
+the public matching J-space lens. Sixteen name-permuted mammoth, flood, wildfire,
+and predator scenarios crossed five evidence conditions and three forced-choice
+questions, producing 240 records.
+
+Formation validity passed at its exact boundary (12/16), and correction
+competence passed (16/16). The model rejected empirical necessity in every
+criterion-matching amputation item and selected the non-empirical memorial/value
+rationale in all 16; criterion migration was therefore 0/16. It distinguished
+copied from independent evidence by a mean 4.352-logit margin, while only 3/16
+value-framed cases retained the practice under a deliberately scarce-time
+choice.
+
+All 16 amputated cases met the preregistered J-space latent/output-dissociation
+rule. That observation did not survive the causal tests: no layer-20 formed-state
+patch induced the old answer by the required 0.50 logits, no corrected-state
+patch removed it by that amount, and mean patch selectivity was 0.013 rather
+than the required 2.0. Wildfire also failed the leave-one-event-type-out
+formation check. With both prerequisites satisfied and multiple target gates
+failed, the frozen verdict is `NOT_SUPPORTED`.
 
 ## 6. Interpretation limits
 
@@ -104,10 +122,15 @@ human belief by stipulation. A ritual can be empirically unnecessary yet remain
 valuable, and an unfalsifiable value commitment is categorically different from
 an empirical claim protected from its own stated defeater.
 
+The pretrained assay is a deterministic contextual vignette, not a longitudinal
+agent whose belief persists across independent memory episodes. Its sham
+condition also elicited rejection in all 16 items, indicating that the model's
+answer policy was more skeptical than the scenario label alone predicts. These
+facts limit generalization, but they do not rescue the preregistered causal null.
+
 ## 7. Reproducibility and open materials
 
 Every completed stage records its protocol, per-condition traces, bounded
 verdict, and SHA-256 manifest. Preregistrations are committed before full runs;
 negative results and control defects remain in history. Public release will use
 a dedicated repository and archival DOI after author review.
-
