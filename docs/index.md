@@ -2,6 +2,8 @@
 
 **James Siyuan He**
 
+[Permanent archive: doi:10.5281/zenodo.22233258](https://doi.org/10.5281/zenodo.22233258)
+
 ## The question
 
 Can a learned belief-like representation survive the exact evidence that was
@@ -37,6 +39,7 @@ causes the relevant prediction or action.
 - [Complete results](https://github.com/Silentpartnercoding/epistemic-amputation/blob/main/RESULTS.md)
 - [Machine-readable final verdict](https://github.com/Silentpartnercoding/epistemic-amputation/blob/main/artifacts/evidence/pretrained-1/result.json)
 - [Source and all evidence](https://github.com/Silentpartnercoding/epistemic-amputation)
+- [Versioned Zenodo archive](https://doi.org/10.5281/zenodo.22233258)
 
 This is a working paper and public research release, not a peer-reviewed claim
 about consciousness, subjective experience, or human religion.

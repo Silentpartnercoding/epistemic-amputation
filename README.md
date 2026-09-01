@@ -1,5 +1,7 @@
 # Phantom Schema
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22233257.svg)](https://doi.org/10.5281/zenodo.22233257)
+
 Public research assays for distinguishing a programmed morphology mismatch from
 a learned, causally active body-schema representation, and for testing the
 stronger epistemic analogue in pretrained language models.
@@ -56,6 +58,11 @@ explicit empirical answer in all 16 amputation cases. Although the J-space
 readout met the frozen latent-dissociation rule, the residual interventions did
 not causally restore or remove the answer, so the readout is not evidence of a
 causally controlling phantom belief.
+
+The permanent Zenodo archive is available at
+[doi:10.5281/zenodo.22233258](https://doi.org/10.5281/zenodo.22233258). The
+concept DOI for all versions is
+[doi:10.5281/zenodo.22233257](https://doi.org/10.5281/zenodo.22233257).
 
 ## License
 
