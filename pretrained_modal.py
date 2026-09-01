@@ -1,8 +1,7 @@
 """Run the frozen pretrained epistemic-amputation assay on Modal.
 
-Requires a Modal login and a Modal secret named ``huggingface`` with an HF token
-that can access the pinned Gemma model. The public J-space lens is downloaded
-without modification.
+Requires a Modal login. Both the pinned Gemma model and public J-space lens are
+downloaded without authentication or modification.
 """
 
 from __future__ import annotations
@@ -46,7 +45,6 @@ cache = modal.Volume.from_name("phantom-belief-hf-cache", create_if_missing=True
     gpu="L40S",
     timeout=4 * 3600,
     volumes={"/hf": cache},
-    secrets=[modal.Secret.from_name("huggingface")],
 )
 def run_remote() -> list[dict]:
     import os
@@ -234,4 +232,3 @@ def main(output: str = "artifacts/evidence/pretrained-1"):
         "".join(f"{digest(path)}  {path.name}\n" for path in files), encoding="utf-8"
     )
     print(json.dumps(result, indent=2, sort_keys=True))
-

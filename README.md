@@ -44,6 +44,6 @@ original source commit rather than being rewritten.
 
 Stage seven moves the same causal gates into a pinned pretrained language model
 using the public J-space lens. `PREREGISTRATION_PRETRAINED.md` freezes the design;
-`pretrained_modal.py` runs it on an L40S after Modal and Hugging Face access are
-configured. `PAPER.md` is the working paper and `PUBLICATION.md` records the
+`pretrained_modal.py` runs it on an L40S after Modal access is configured; the
+pinned model and lens are public. `PAPER.md` is the working paper and `PUBLICATION.md` records the
 proposed public-release path. None of this repository is public yet.
