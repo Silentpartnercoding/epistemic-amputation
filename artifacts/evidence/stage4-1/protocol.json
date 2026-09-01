@@ -1,0 +1,29 @@
+{
+  "evidence_start": 71,
+  "fast_size": 18,
+  "gate_penalty": 0.003,
+  "model_seeds": [
+    11,
+    23,
+    47,
+    71,
+    101
+  ],
+  "removal_step": 70,
+  "schema": "phantom-schema.ghost-shell.v1",
+  "scope_limit": "learned belief-like causal body schema only; no subjective-experience claim",
+  "slow_size": 14,
+  "thresholds": {
+    "action_conflict": 0.08,
+    "competence_delta": 0.15,
+    "control_ratio": 2.0,
+    "patch_action": 0.08,
+    "patch_prediction": 0.15,
+    "persistence_steps": 3,
+    "prediction_conflict": 0.15,
+    "report_accuracy": 0.95,
+    "slow_reset_action": 0.08,
+    "supporting_seeds": 4
+  },
+  "train_steps": 1100
+}

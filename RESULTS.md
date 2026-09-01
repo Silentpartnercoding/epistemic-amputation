@@ -67,3 +67,42 @@ its declarative channel remains fast. That should be tested only with a new
 preregistration and the same bidirectional interventions. Adding more physics
 alone would improve realism but would not solve the missing cognitive
 dissociation.
+
+## Two-timescale “ghost in the shell” stage four: NOT SUPPORTED
+
+Stage four implemented the proposed fast/slow split with a generic learned
+consolidation gate. It was frozen at commit `22cc07f` before its first full run.
+Training included intact bodies, stable absent effectors, real mid-episode
+removals, and temporary sensor failures. The evaluation required truthful
+reporting, jointly persistent prediction and action, eventual adaptation,
+bidirectional slow-state intervention, slow-memory ablation, and matched random
+controls.
+
+The result was negative:
+
+- Learned competence passed with a 0.3270 improvement over random.
+- Truthful reporting passed in every seed/effector condition.
+- Eventual adaptation passed.
+- Zero of five seeds showed the required persistent prediction-and-action
+  conflict after actual zero-response evidence.
+- The first-three-decision unavailable-action excess was only about
+  0.0002–0.0008 across all 15 conditions, far below 0.08.
+- The reverse slow-state patch strongly restored a *prediction* of presence
+  (0.4838 mean) but restored almost none of the matching action (0.0082 mean).
+  A prediction without the corresponding policy effect fails the preregistered
+  belief-like causal bundle.
+- Resetting slow memory increased unavailable action on average rather than
+  removing it. The slow system had learned to help represent absence, not to
+  haunt the controller with the old body.
+- The exact M1 replay was byte-identical and every evidence hash verified.
+
+This rules out the simplest two-timescale explanation in this controlled
+architecture. Continuing to add synthetic memory biases until a positive result
+appears would manufacture the target rather than discover it.
+
+The scientifically cleaner next step is an actual J-space experiment on an
+already pretrained language/world model: let a self-model form from a long
+sensorimotor/tool history, hold the outward acknowledgement constant, and patch
+the residual-stream body representation immediately before prediction and
+action. That requires a supported model plus Jacobian-lens GPU fitting; it is a
+new compute stage, not a reinterpretation of these toy-model results.
