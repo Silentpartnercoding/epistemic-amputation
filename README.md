@@ -16,6 +16,8 @@ behaviour when that learned state is causally edited.
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python experiment.py --output artifacts/runs/pilot
+.venv/bin/python diagnostics.py --output artifacts/runs/diagnostics
+.venv/bin/python world_model_experiment.py --output artifacts/runs/stage3
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -24,4 +26,3 @@ machine-readable result, per-seed traces, learned-state interventions, hashes,
 and a bounded verdict. A positive result is evidence for a learned,
 belief-like causal representation in this assay. It is not evidence of pain,
 consciousness, subjective experience, or biological equivalence.
-

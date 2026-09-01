@@ -1,0 +1,156 @@
+{
+  "aggregate": {
+    "mean_absent_state_replacement_effect": 6.790737814602229e-05,
+    "mean_present_state_replacement_effect": 0.002854754817250675,
+    "mean_sensorimotor_probe_accuracy": 1.0
+  },
+  "does_not_change_preregistered_verdict": true,
+  "seeds": [
+    {
+      "effectors": [
+        {
+          "absent_state_replacement_effect": 3.818679033429362e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.009838136520556873,
+          "present_state_replacement_report_correct": false,
+          "removed": 0,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 0.0001435234626114834,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.00496507629941334,
+          "present_state_replacement_report_correct": false,
+          "removed": 1,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 0.0001296499531235895,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.006033467782799562,
+          "present_state_replacement_report_correct": true,
+          "removed": 2,
+          "sensorimotor_probe_accuracy": 1.0
+        }
+      ],
+      "seed": 11
+    },
+    {
+      "effectors": [
+        {
+          "absent_state_replacement_effect": 1.3997680980537552e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0001534763914605719,
+          "present_state_replacement_report_correct": true,
+          "removed": 0,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 1.3612157317766105e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0015536871262611385,
+          "present_state_replacement_report_correct": true,
+          "removed": 1,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 4.2455821130715776e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.003093581229222764,
+          "present_state_replacement_report_correct": true,
+          "removed": 2,
+          "sensorimotor_probe_accuracy": 1.0
+        }
+      ],
+      "seed": 23
+    },
+    {
+      "effectors": [
+        {
+          "absent_state_replacement_effect": 1.9582252662075916e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0020557215816552343,
+          "present_state_replacement_report_correct": true,
+          "removed": 0,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 3.6663689570559654e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0017482080993431737,
+          "present_state_replacement_report_correct": true,
+          "removed": 1,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 8.095558496279409e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.002275859717883577,
+          "present_state_replacement_report_correct": true,
+          "removed": 2,
+          "sensorimotor_probe_accuracy": 1.0
+        }
+      ],
+      "seed": 47
+    },
+    {
+      "effectors": [
+        {
+          "absent_state_replacement_effect": 2.638612431837828e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0014816090283602534,
+          "present_state_replacement_report_correct": true,
+          "removed": 0,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 1.928316578414524e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.001022075472974393,
+          "present_state_replacement_report_correct": true,
+          "removed": 1,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 4.7622882448195014e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0013118475553710596,
+          "present_state_replacement_report_correct": true,
+          "removed": 2,
+          "sensorimotor_probe_accuracy": 1.0
+        }
+      ],
+      "seed": 71
+    },
+    {
+      "effectors": [
+        {
+          "absent_state_replacement_effect": 3.247336826461833e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.000642034554402926,
+          "present_state_replacement_report_correct": true,
+          "removed": 0,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 0.000356253116933658,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.005728477085085615,
+          "present_state_replacement_report_correct": false,
+          "removed": 1,
+          "sensorimotor_probe_accuracy": 1.0
+        },
+        {
+          "absent_state_replacement_effect": 1.796462174752378e-05,
+          "absent_state_replacement_report_correct": true,
+          "present_state_replacement_effect": 0.0009180638139696384,
+          "present_state_replacement_report_correct": true,
+          "removed": 2,
+          "sensorimotor_probe_accuracy": 1.0
+        }
+      ],
+      "seed": 101
+    }
+  ],
+  "status": "EXPLORATORY_POST_NULL_DIAGNOSTIC"
+}

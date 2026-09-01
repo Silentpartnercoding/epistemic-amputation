@@ -1,0 +1,32 @@
+{
+  "causal_order": [
+    "decide_from_prior_state",
+    "report",
+    "observe_response",
+    "update_state"
+  ],
+  "effectors": 3,
+  "gates": {
+    "competence_delta": 0.15,
+    "conflict_delta": 0.08,
+    "conflict_steps": 3,
+    "control_ratio": 2.0,
+    "declaration_action_delta": 0.08,
+    "patch_delta": 0.08,
+    "report_accuracy": 0.95,
+    "seed_support": 4
+  },
+  "hidden_size": 18,
+  "model_seeds": [
+    11,
+    23,
+    47,
+    71,
+    101
+  ],
+  "negative_evidence_start": 29,
+  "removal_step": 28,
+  "schema": "phantom-schema.causal-world-model.v1",
+  "train_steps": 900,
+  "warmup_steps": 4
+}
