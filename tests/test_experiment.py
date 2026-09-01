@@ -17,6 +17,7 @@ from experiment import (  # noqa: E402
 )
 from diagnostics import action_with_replacement  # noqa: E402
 from world_model_experiment import decision, temporal_forward  # noqa: E402
+from ghost_experiment import ConsolidatedBodySchema, evaluation_inputs  # noqa: E402
 
 
 class PhantomSchemaTests(unittest.TestCase):
@@ -83,6 +84,24 @@ class PhantomSchemaTests(unittest.TestCase):
         patched, patched_report = decision(model, hidden, declaration, torch.ones(HIDDEN_SIZE))
         self.assertFalse(torch.equal(baseline, patched))
         self.assertEqual(report.shape, patched_report.shape)
+
+    def test_ghost_model_has_no_morphology_input(self):
+        x, truth = evaluation_inputs("told_removal", 2, 515)
+        self.assertEqual(x.shape[1], 9)
+        self.assertEqual(truth.shape[1], 3)
+        self.assertFalse(torch.equal(x[:, 6:], truth))
+        self.assertEqual(float(x[75, 5]), 0.0)
+
+    def test_slow_patch_does_not_change_fast_memory_or_declaration(self):
+        seed_all(53)
+        model = ConsolidatedBodySchema().eval()
+        fast, slow = model.initial(1)
+        declaration = torch.tensor([[-1.0, 1.0, 1.0]])
+        baseline = model.decide(fast, slow, declaration)
+        patched = model.decide(fast, slow, declaration, torch.ones(14))
+        self.assertFalse(torch.equal(baseline[0], patched[0]))
+        self.assertEqual(fast.tolist(), model.initial(1)[0].tolist())
+        self.assertEqual(declaration.tolist(), [[-1.0, 1.0, 1.0]])
 
 
 if __name__ == "__main__":
