@@ -1,0 +1,15 @@
+{
+  "agents": 40,
+  "null_observations": 5,
+  "schema": "phantom-schema.social-amputation.v1",
+  "scope_limit": "transparent social mechanism simulation; no claim that humans or LLMs instantiate it",
+  "society_seeds": 50,
+  "spread_rounds": 8,
+  "thresholds": {
+    "corrected_belief": 0.3,
+    "migration_observations": 1,
+    "phantom_belief": 0.7,
+    "phantom_seed_rate": 0.8,
+    "provenance_reduction": 0.2
+  }
+}

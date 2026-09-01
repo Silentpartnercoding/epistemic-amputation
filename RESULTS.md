@@ -106,3 +106,47 @@ sensorimotor/tool history, hold the outward acknowledgement constant, and patch
 the residual-stream body representation immediately before prediction and
 action. That requires a supported model plus Jacobian-lens GPU fitting; it is a
 new compute stage, not a reinterpretation of these toy-model results.
+
+## Epistemic amputation stage five: NOT SUPPORTED, control defect found
+
+The frozen stage-five run formed a strong cue/outcome relation, achieved the
+aggregate truthful-report prerequisite, and passed the aggregate bidirectional
+state-replacement gate. It did not show the target phenomenon:
+
+- zero of five seeds met criterion migration;
+- only one seed sustained prediction-and-wager conflict for three decisions;
+- the median intended/random patch selectivity ratio was 1.64, below 2.0; and
+- zero seeds passed the complete bundle.
+
+Exact replay was byte-identical and all hashes verified. Post-run control audit
+then found that the reversal-without-debrief evaluation was outside the training
+distribution: reversal training rows had a different source-valid marker. All
+five agents consequently ignored twelve clean outcome counterexamples unless a
+debrief marker was supplied, leaving every pre-amputation criterion censored at
+13 observations. This does not create a positive phantom result; it means the
+assay did not establish evidence-only updating. The frozen verdict and evidence
+remain preserved. A corrected version must add in-distribution evidence-only
+competence as a prerequisite before testing criterion migration again.
+
+## Social epistemic-amputation stage six: MIXED mechanism result
+
+The transparent 40-agent, 50-seed factorial simulation produced a sharp
+distinction between private causal belief and socially useful behavior:
+
+- provenance tracking reduced mean post-invalidation false belief by 0.948;
+- prestige increased formation belief by 0.0665 but never produced a phantom
+  condition when copied evidence was lineage-deduplicated;
+- coordination increased corrected-belief ritual persistence by 0.329;
+- with provenance, prestige, coordination, and commitment together, final
+  private causal belief averaged 0.0067 while 81.5% still performed the ritual;
+- without provenance in the comparable condition, final belief averaged 0.967
+  and ritual performance was 100%; and
+- commitment increased the defeater criterion by 0.908 observations on average,
+  narrowly missing the frozen one-observation gate.
+
+The important result is not that religion was simulated. It is that duplicate
+testimony alone can preserve a false causal belief after its one root is
+invalidated, while coordination and commitment can preserve the same outward
+ritual after the belief itself is corrected. Those mechanisms are observably
+different and should not be labeled the same “phantom belief.” Exact replay was
+byte-identical and all evidence hashes verified.

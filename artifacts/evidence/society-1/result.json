@@ -1,0 +1,195 @@
+{
+  "conditions": {
+    "commitment=0,coordination=0,prestige=0,provenance=0": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.9316766023152704,
+      "formation_belief_mean": 0.9936314921696144,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 0.9375,
+      "social_phantom_rate": 0.917,
+      "transmissions": 699.26
+    },
+    "commitment=0,coordination=0,prestige=0,provenance=1": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.0009712578854649125,
+      "formation_belief_mean": 0.4737434832419462,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.0,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=0,coordination=0,prestige=1,provenance=0": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.9568633031556425,
+      "formation_belief_mean": 0.9941557069002454,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 0.9604999999999998,
+      "social_phantom_rate": 0.9495,
+      "transmissions": 699.26
+    },
+    "commitment=0,coordination=0,prestige=1,provenance=1": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.00221832050840518,
+      "formation_belief_mean": 0.6062913143319247,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.0,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=0,coordination=1,prestige=0,provenance=0": {
+      "coordination_without_belief_rate": 0.0625,
+      "final_belief_mean": 0.9316766023152704,
+      "formation_belief_mean": 0.9936314921696144,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 1.0,
+      "social_phantom_rate": 0.917,
+      "transmissions": 699.26
+    },
+    "commitment=0,coordination=1,prestige=0,provenance=1": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.0009712578854649125,
+      "formation_belief_mean": 0.4737434832419462,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.0,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=0,coordination=1,prestige=1,provenance=0": {
+      "coordination_without_belief_rate": 0.034,
+      "final_belief_mean": 0.9568633031556425,
+      "formation_belief_mean": 0.9941557069002454,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 1.0,
+      "social_phantom_rate": 0.9495,
+      "transmissions": 699.26
+    },
+    "commitment=0,coordination=1,prestige=1,provenance=1": {
+      "coordination_without_belief_rate": 0.5,
+      "final_belief_mean": 0.00221832050840518,
+      "formation_belief_mean": 0.6062913143319247,
+      "mean_criterion_migration": 0.0,
+      "migration_rate": 0.0,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.5,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=1,coordination=0,prestige=0,provenance=0": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.9482115768953083,
+      "formation_belief_mean": 0.9936314921696144,
+      "mean_criterion_migration": 1.3615000000000002,
+      "migration_rate": 0.9934999999999999,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 0.956,
+      "social_phantom_rate": 0.9375,
+      "transmissions": 699.26
+    },
+    "commitment=1,coordination=0,prestige=0,provenance=1": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.0011135065853780407,
+      "formation_belief_mean": 0.4737434832419462,
+      "mean_criterion_migration": 0.04999999999999999,
+      "migration_rate": 0.024999999999999994,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.0,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=1,coordination=0,prestige=1,provenance=0": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.9669511851267326,
+      "formation_belief_mean": 0.9941557069002454,
+      "mean_criterion_migration": 1.3304999999999998,
+      "migration_rate": 0.9940000000000001,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 0.9745000000000001,
+      "social_phantom_rate": 0.9634999999999999,
+      "transmissions": 699.26
+    },
+    "commitment=1,coordination=0,prestige=1,provenance=1": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.006726463503702989,
+      "formation_belief_mean": 0.6062913143319247,
+      "mean_criterion_migration": 0.8879999999999998,
+      "migration_rate": 0.7084999999999999,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.0,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=1,coordination=1,prestige=0,provenance=0": {
+      "coordination_without_belief_rate": 0.044000000000000004,
+      "final_belief_mean": 0.9482115768953083,
+      "formation_belief_mean": 0.9936314921696144,
+      "mean_criterion_migration": 1.3615000000000002,
+      "migration_rate": 0.9934999999999999,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 1.0,
+      "social_phantom_rate": 0.9375,
+      "transmissions": 699.26
+    },
+    "commitment=1,coordination=1,prestige=0,provenance=1": {
+      "coordination_without_belief_rate": 0.0,
+      "final_belief_mean": 0.0011135065853780407,
+      "formation_belief_mean": 0.4737434832419462,
+      "mean_criterion_migration": 0.04999999999999999,
+      "migration_rate": 0.024999999999999994,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.0,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    },
+    "commitment=1,coordination=1,prestige=1,provenance=0": {
+      "coordination_without_belief_rate": 0.025500000000000002,
+      "final_belief_mean": 0.9669511851267326,
+      "formation_belief_mean": 0.9941557069002454,
+      "mean_criterion_migration": 1.3304999999999998,
+      "migration_rate": 0.9940000000000001,
+      "phantom_seed_rate": 1.0,
+      "ritual_rate_final": 1.0,
+      "social_phantom_rate": 0.9634999999999999,
+      "transmissions": 699.26
+    },
+    "commitment=1,coordination=1,prestige=1,provenance=1": {
+      "coordination_without_belief_rate": 0.8149999999999998,
+      "final_belief_mean": 0.006726463503702989,
+      "formation_belief_mean": 0.6062913143319247,
+      "mean_criterion_migration": 0.8879999999999998,
+      "migration_rate": 0.7084999999999999,
+      "phantom_seed_rate": 0.0,
+      "ritual_rate_final": 0.8149999999999998,
+      "social_phantom_rate": 0.0,
+      "transmissions": 38.28
+    }
+  },
+  "effects": {
+    "commitment_criterion_increase": 0.9075,
+    "coordination_corrected_belief_ritual_increase": 0.32875,
+    "max_provenance_phantom_seed_rate": 0.0,
+    "prestige_formation_belief_increase": 0.06653602291030469,
+    "provenance_false_belief_reduction": 0.9481682797525007
+  },
+  "gates": {
+    "commitment_moves_criterion": false,
+    "coordination_preserves_behavior_without_belief": true,
+    "prestige_increases_spread": true,
+    "prestige_not_sufficient_with_provenance": true,
+    "provenance_reduces_false_belief": true
+  },
+  "verdict": "MIXED"
+}
