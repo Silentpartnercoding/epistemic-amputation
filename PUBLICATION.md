@@ -1,6 +1,8 @@
 # Publication map
 
-Nothing in this repository is public yet. It currently has no Git remote.
+The canonical public source repository is:
+
+`https://github.com/Silentpartnercoding/epistemic-amputation`
 
 The intended release package is:
 
@@ -19,5 +21,7 @@ existing claims concern reliability and hallucination detection.
 Public release must preserve negative and inconclusive results, disclose the
 stage-five control defect, retain exact source commits for each frozen run, and
 include model/lens licenses. Creating a public repository, DOI, or preprint is a
-separate outward publication step and requires final author approval.
-
+separate outward publication step. The public source release was approved on
+2026-09-01. A DOI deposit and formal preprint submission still require their
+venue-specific metadata, including the final legal author name and a deliberate
+license choice.

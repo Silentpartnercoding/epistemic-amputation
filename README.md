@@ -1,7 +1,8 @@
 # Phantom Schema
 
-Private research assays for distinguishing a programmed morphology mismatch from
-a learned, causally active body-schema representation.
+Public research assays for distinguishing a programmed morphology mismatch from
+a learned, causally active body-schema representation, and for testing the
+stronger epistemic analogue in pretrained language models.
 
 The preserved stage-one sled benchmark established only that a controller whose
 body model is left stale continues to command a removed actuator. This repository
@@ -46,8 +47,9 @@ original source commit rather than being rewritten.
 Stage seven moves the same causal gates into a pinned pretrained language model
 using the public J-space lens. `PREREGISTRATION_PRETRAINED.md` freezes the design;
 `pretrained_modal.py` runs it on an L40S after Modal access is configured; the
-pinned model and lens are public. `PAPER.md` is the working paper and `PUBLICATION.md` records the
-proposed public-release path. None of this repository is public yet.
+pinned model and lens are public. [`PAPER.md`](PAPER.md) is the working paper,
+[`RESULTS.md`](RESULTS.md) preserves the bounded findings, and
+[`PUBLICATION.md`](PUBLICATION.md) records the release path.
 
 The completed stage-seven verdict is `NOT_SUPPORTED`. The model corrected its
 explicit empirical answer in all 16 amputation cases. Although the J-space
