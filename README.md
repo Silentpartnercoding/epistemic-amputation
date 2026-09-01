@@ -56,3 +56,10 @@ explicit empirical answer in all 16 amputation cases. Although the J-space
 readout met the frozen latent-dissociation rule, the residual interventions did
 not causally restore or remove the answer, so the readout is not evidence of a
 causally controlling phantom belief.
+
+## License
+
+Code is released under the MIT License. The paper, preregistrations,
+documentation, and original research data are released under CC BY 4.0.
+Third-party dependencies and cited material retain their own licenses. See
+`LICENSE` and `LICENSE-PAPER-DATA.md`.
