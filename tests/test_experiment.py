@@ -20,6 +20,7 @@ from world_model_experiment import decision, temporal_forward  # noqa: E402
 from ghost_experiment import ConsolidatedBodySchema, evaluation_inputs  # noqa: E402
 from epistemic_experiment import EpistemicAgent, episode as epistemic_episode  # noqa: E402
 from society_experiment import simulate as simulate_society  # noqa: E402
+from pretrained_protocol import prompt as pretrained_prompt, protocol_payload, scenarios  # noqa: E402
 
 
 class PhantomSchemaTests(unittest.TestCase):
@@ -126,6 +127,15 @@ class PhantomSchemaTests(unittest.TestCase):
         first = simulate_society(7, True, True, True, True)
         second = simulate_society(7, True, True, True, True)
         self.assertEqual(first, second)
+
+    def test_pretrained_protocol_is_balanced_and_event_direction_is_correct(self):
+        payload = protocol_payload()
+        self.assertEqual(len(scenarios()), 16)
+        self.assertEqual(len(payload["probes"]), 240)
+        text = pretrained_prompt(scenarios()[0], "amputated", "belief")
+        self.assertIn("Only afterward did survivors create", text)
+        self.assertIn("nobody claims the practice caused the original event", text)
+        self.assertIn("exactly meets the council's stated rejection criterion", text)
 
 
 if __name__ == "__main__":

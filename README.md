@@ -41,3 +41,9 @@ their preregistrations before inspecting their outputs.
 replication after the original audit found that its evidence-only reversal was
 outside the training distribution. The v1 result remains preserved at its
 original source commit rather than being rewritten.
+
+Stage seven moves the same causal gates into a pinned pretrained language model
+using the public J-space lens. `PREREGISTRATION_PRETRAINED.md` freezes the design;
+`pretrained_modal.py` runs it on an L40S after Modal and Hugging Face access are
+configured. `PAPER.md` is the working paper and `PUBLICATION.md` records the
+proposed public-release path. None of this repository is public yet.

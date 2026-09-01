@@ -178,3 +178,10 @@ invalidated, while coordination and commitment can preserve the same outward
 ritual after the belief itself is corrected. Those mechanisms are observably
 different and should not be labeled the same “phantom belief.” Exact replay was
 byte-identical and all evidence hashes verified.
+
+Direction correction: this simulation's hunt-success framing tests copied
+causal misattribution, not the founding-event account of ritual. In the latter,
+the mammoth encounter or other collective crisis happens first and produces
+reenactment, narrative, and sacred memory afterward. Stage seven corrects that
+direction explicitly and tests whether a later empirical *necessity* claim
+persists after its precommitted defeater, while keeping memorial value separate.
