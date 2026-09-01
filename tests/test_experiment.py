@@ -16,6 +16,7 @@ from experiment import (  # noqa: E402
     seed_all,
 )
 from diagnostics import action_with_replacement  # noqa: E402
+from world_model_experiment import decision, temporal_forward  # noqa: E402
 
 
 class PhantomSchemaTests(unittest.TestCase):
@@ -61,6 +62,27 @@ class PhantomSchemaTests(unittest.TestCase):
         _, report = action_with_replacement(model, "told_removal", "adapted_absent", 1, 810, 29)
         self.assertGreaterEqual(report, 0.0)
         self.assertLessEqual(report, 1.0)
+
+    def test_world_model_decides_before_consuming_current_response(self):
+        seed_all(37)
+        model = BodySchemaGRU().eval()
+        x, _ = episode_inputs("told_removal", 0, 909)
+        altered = x.clone()
+        altered[10, 3:6] = 999.0
+        original_action, _, _ = temporal_forward(model, x[None])
+        altered_action, _, _ = temporal_forward(model, altered[None])
+        self.assertTrue(torch.equal(original_action[:, 10], altered_action[:, 10]))
+        self.assertFalse(torch.equal(original_action[:, 11], altered_action[:, 11]))
+
+    def test_immediate_patch_changes_only_the_decision_state(self):
+        seed_all(41)
+        model = BodySchemaGRU().eval()
+        declaration = torch.tensor([[-1.0, 1.0, 1.0]])
+        hidden = torch.zeros(1, 1, HIDDEN_SIZE)
+        baseline, report = decision(model, hidden, declaration)
+        patched, patched_report = decision(model, hidden, declaration, torch.ones(HIDDEN_SIZE))
+        self.assertFalse(torch.equal(baseline, patched))
+        self.assertEqual(report.shape, patched_report.shape)
 
 
 if __name__ == "__main__":
