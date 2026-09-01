@@ -3,8 +3,9 @@ message: "If you use this research, please cite the software and working paper."
 title: "Epistemic Amputation: Distinguishing Persistent Belief from Readable but Non-Causal State in Learned Agents"
 type: software
 authors:
-  - name: "Silent Partner"
-version: 0.1.0
+  - given-names: "James Siyuan"
+    family-names: "He"
+version: 0.1.1
 date-released: 2026-09-01
 repository-code: "https://github.com/Silentpartnercoding/epistemic-amputation"
 url: "https://silentpartnercoding.github.io/epistemic-amputation/"
@@ -22,4 +23,3 @@ keywords:
   - J-space
   - causal inference
   - language models
-

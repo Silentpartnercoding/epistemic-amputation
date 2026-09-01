@@ -1,5 +1,7 @@
 # Epistemic Amputation
 
+**James Siyuan He**
+
 ## The question
 
 Can a learned belief-like representation survive the exact evidence that was
@@ -30,6 +32,7 @@ causes the relevant prediction or action.
 ## Read and reproduce
 
 - [Working paper](https://github.com/Silentpartnercoding/epistemic-amputation/blob/main/PAPER.md)
+- [Download the authored PDF](https://github.com/Silentpartnercoding/epistemic-amputation/releases/download/v0.1.1/epistemic-amputation-working-paper-v0.1.1.pdf)
 - [Preregistered pretrained-model protocol](https://github.com/Silentpartnercoding/epistemic-amputation/blob/main/PREREGISTRATION_PRETRAINED.md)
 - [Complete results](https://github.com/Silentpartnercoding/epistemic-amputation/blob/main/RESULTS.md)
 - [Machine-readable final verdict](https://github.com/Silentpartnercoding/epistemic-amputation/blob/main/artifacts/evidence/pretrained-1/result.json)
@@ -37,4 +40,3 @@ causes the relevant prediction or action.
 
 This is a working paper and public research release, not a peer-reviewed claim
 about consciousness, subjective experience, or human religion.
-

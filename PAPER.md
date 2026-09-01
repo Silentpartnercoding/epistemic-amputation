@@ -1,5 +1,7 @@
 # Epistemic Amputation: Distinguishing Persistent Belief from Readable but Non-Causal State in Learned Agents
 
+**James Siyuan He**
+
 ## Status
 
 Public working paper. Not peer reviewed.
