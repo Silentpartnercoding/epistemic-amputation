@@ -18,6 +18,8 @@ from experiment import (  # noqa: E402
 from diagnostics import action_with_replacement  # noqa: E402
 from world_model_experiment import decision, temporal_forward  # noqa: E402
 from ghost_experiment import ConsolidatedBodySchema, evaluation_inputs  # noqa: E402
+from epistemic_experiment import EpistemicAgent, episode as epistemic_episode  # noqa: E402
+from society_experiment import simulate as simulate_society  # noqa: E402
 
 
 class PhantomSchemaTests(unittest.TestCase):
@@ -102,6 +104,27 @@ class PhantomSchemaTests(unittest.TestCase):
         self.assertFalse(torch.equal(baseline[0], patched[0]))
         self.assertEqual(fast.tolist(), model.initial(1)[0].tolist())
         self.assertEqual(declaration.tolist(), [[-1.0, 1.0, 1.0]])
+
+    def test_epistemic_amputation_contains_debrief_and_counterevidence(self):
+        x = epistemic_episode("amputated", 991)
+        self.assertEqual(tuple(x.shape), (30, 4))
+        self.assertEqual(float(x[18, 3]), 1.0)
+        self.assertTrue((x[18:, 2] == -1.0).all())
+
+    def test_epistemic_patch_does_not_change_report_input(self):
+        seed_all(61)
+        model = EpistemicAgent().eval()
+        hidden = model.initial(1)
+        debrief = torch.ones(1)
+        baseline = model.decide(hidden, debrief)
+        patched = model.decide(hidden, debrief, torch.ones(24))
+        self.assertFalse(torch.equal(baseline[1], patched[1]))
+        self.assertEqual(debrief.tolist(), [1.0])
+
+    def test_society_simulation_is_deterministic(self):
+        first = simulate_society(7, True, True, True, True)
+        second = simulate_society(7, True, True, True, True)
+        self.assertEqual(first, second)
 
 
 if __name__ == "__main__":

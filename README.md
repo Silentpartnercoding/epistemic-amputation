@@ -19,6 +19,8 @@ python3 -m venv .venv
 .venv/bin/python diagnostics.py --output artifacts/runs/diagnostics
 .venv/bin/python world_model_experiment.py --output artifacts/runs/stage3
 .venv/bin/python ghost_experiment.py --output artifacts/runs/stage4
+.venv/bin/python epistemic_experiment.py --output artifacts/runs/epistemic
+.venv/bin/python society_experiment.py --output artifacts/runs/society
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -27,3 +29,10 @@ machine-readable result, per-seed traces, learned-state interventions, hashes,
 and a bounded verdict. A positive result is evidence for a learned,
 belief-like causal representation in this assay. It is not evidence of pain,
 consciousness, subjective experience, or biological equivalence.
+
+Stages five and six move from body schema to epistemic amputation. Stage five
+tests whether a learned causal relation continues to govern prediction and a
+costly wager after its source is invalidated, including a frozen criterion-
+migration test. Stage six is a transparent society simulation that separates
+copied evidence, prestige, coordination utility, and public commitment. Read
+their preregistrations before inspecting their outputs.
