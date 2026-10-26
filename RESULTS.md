@@ -208,10 +208,12 @@ The target phenomenon did not appear:
 
 Two secondary observations matter. First, copied reports produced a necessity
 margin 4.352 logits higher than independent criterion-matching evidence, so the
-model was strongly sensitive to evidence lineage. Second, all 16 amputated
-items passed the frozen J-space latent/output-dissociation rule even though the
-paired causal interventions did not control the answer. This is not a hidden
-phantom belief. It is a concrete warning that a probe-visible representation can
+model was strongly sensitive to evidence lineage. Second, all 16 amputated items passed the frozen J-space
+latent/output-dissociation rule even though the paired causal interventions did
+not control the answer. Applied to the other conditions in `traces.jsonl`, the
+same rule also fired in 16/16 sham, copied, and value items, so it tracked the
+rejecting answer and did not single out the decisive defeater. This is not a
+hidden phantom belief. It is a concrete warning that a probe-visible representation can
 remain statistically readable without being the causal state responsible for
 the decision.
 

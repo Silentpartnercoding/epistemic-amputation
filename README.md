@@ -54,10 +54,11 @@ pinned model and lens are public. [`PAPER.md`](PAPER.md) is the working paper,
 [`PUBLICATION.md`](PUBLICATION.md) records the release path.
 
 The completed stage-seven verdict is `NOT_SUPPORTED`. The model corrected its
-explicit empirical answer in all 16 amputation cases. Although the J-space
-readout met the frozen latent-dissociation rule, the residual interventions did
-not causally restore or remove the answer, so the readout is not evidence of a
-causally controlling phantom belief.
+explicit empirical answer in all 16 amputation cases. The J-space readout met the frozen latent-dissociation rule in all 16 amputation
+cases, but it met the same rule in all 16 sham cases, where the rejection
+criterion was not met. The residual interventions at the preregistered layer 20
+did not causally restore or remove the answer, so the readout is not evidence of
+a causally controlling phantom belief.
 
 The permanent Zenodo archive is available at
 [doi:10.5281/zenodo.22233258](https://doi.org/10.5281/zenodo.22233258). The
