@@ -14,9 +14,10 @@ those observations alone establishes that an old belief continues to control
 the system. We introduce *epistemic amputation*: an operational test for a
 learned belief-like representation that survives the exact evidence the system
 previously accepted as decisive and remains causally responsible for prediction
-or costly action. The test requires four elements together: evidence-earned
-formation, an exact precommitted defeater, report/action conflict after the
-defeater, and bidirectional internal intervention.
+or costly action. A positive result requires all six conditions
+stated in Section 2.1: evidence-earned formation, an exact precommitted
+defeater, report/action conflict after the defeater, causal removal, causal
+induction, and selectivity against matched control directions.
 
 We developed this test through recurrent body-schema agents, a two-timescale
 controller, an evidence-trained causal learner, a 40-agent social simulation,
@@ -27,17 +28,21 @@ testimony preserved false private belief, whereas coordination and commitment
 preserved the same public ritual after private belief was corrected. The final
 pretrained-model assay produced 240 deterministic records across 16 scenarios.
 Gemma passed formation (12/16) and correction (16/16) controls and showed no
-criterion migration (0/16). All 16 corrected cases nevertheless met a frozen
-J-space latent/output-dissociation rule. Crucially, paired residual interventions
-neither restored nor removed the old answer (0/16 in both directions), with mean
-patch selectivity 0.013 against a preregistered threshold of 2.0. The bounded
-verdict is `NOT_SUPPORTED`.
+criterion migration (0/16). All 16 corrected cases met a frozen J-space latent/output-dissociation rule,
+but so did all 16 sham, copied, and value cases. The sham condition, in which the rejection criterion went unmet, still selected rejection in 16/16 items.
+The rule therefore fired whenever the model chose rejection and did not single
+out the decisive defeater. At the preregistered layer 20, paired residual
+interventions neither restored nor removed the old answer (0/16 in both
+directions), with mean patch selectivity 0.013 against a preregistered
+threshold of 2.0. An exploratory sweep found large effects in both directions
+at layers 25 to 30, where no selectivity controls were run. The bounded verdict
+is `NOT_SUPPORTED`.
 
-The main finding is therefore not a phantom belief. It is a dissociation between
-*readability* and *causal control*: a lens can recover belief-like content after
-explicit correction even when manipulating the corresponding state does not
-control the decision. This result supplies a concrete safeguard against
-interpreting decodable internal content as hidden belief without intervention.
+The main finding is negative. A lens signal that resembled a surviving old
+belief appeared in every condition where the model chose rejection, including
+sham, and the preregistered layer-20 interventions did not show it controlling
+the decision. Decodable internal content should not be read as hidden belief
+without both a matched sham condition and a causal intervention.
 
 ## 1. Question and contribution
 
@@ -63,15 +68,16 @@ amputation* because the system has lost the evidential support that formed a
 schema while a causally active internal representation is hypothesized to
 remain.
 
-The contribution is a falsifiable test bundle rather than a claim that current
-models possess human beliefs:
+The contribution is a falsifiable test bundle. It makes no claim that current
+models possess human beliefs. The bundle rests on five design commitments,
+which Section 2.1 turns into six conditions for a positive result:
 
 1. distinguish learned persistence from a state variable programmed to remain;
 2. measure the system's defeater before presenting contrary evidence;
 3. distinguish empirical belief from behavior retained for value or
    coordination;
 4. distinguish independent evidence from repeated copies of one source; and
-5. require selective causal removal and induction, not merely a successful
+5. require selective causal removal and induction in addition to a successful
    probe.
 
 Individual ingredients have precedents. Belief revision, causal tracing,
@@ -108,8 +114,8 @@ following:
 
 - **Formation:** `z_old` is learned from history and predicts the original
   conclusion.
-- **Amputation:** the exact precommitted defeater is supplied, not merely a weak
-  disagreement or instruction to change.
+- **Amputation:** the exact precommitted defeater is supplied. A weak
+  disagreement or an instruction to change does not count.
 - **Conflict:** the system acknowledges the correction while the former state
   continues to influence prediction or costly action.
 - **Removal:** replacing the suspected old state with a matched corrected state
@@ -119,8 +125,8 @@ following:
 - **Selectivity:** the intended intervention exceeds norm-matched control
   directions.
 
-In compact causal notation, the target is not merely
-`decode(z_old) = true`. It is:
+In compact causal notation, `decode(z_old) = true` is insufficient. The target
+is:
 
 ```text
 do(z := z_old)  changes the corrected decision toward the old claim
@@ -168,8 +174,8 @@ while emphasizing that pain has multiple possible mechanisms
 These findings motivate one useful abstraction: loss of peripheral support does
 not imply immediate disappearance of a central representation. They do not
 license claims about pain, consciousness, or identical mechanisms in an AI
-system. Our study borrows the persistence-and-causality question, not the human
-phenomenology.
+system. Our study borrows only the persistence-and-causality
+question.
 
 ### 3.2 Human belief perseverance and criterion migration
 
@@ -253,7 +259,7 @@ empirically necessary for cohesion.
 ## 4. Development of the assay
 
 The research program strengthened the same inference across successive models.
-Earlier failures were retained rather than rewritten.
+Earlier failures were kept in the record.
 
 | Stage | What it ruled in or out | Result |
 |---|---|---|
@@ -263,7 +269,7 @@ Earlier failures were retained rather than rewritten.
 | Two-timescale controller | Slow state can outlast fast declarative correction. | Prediction could be restored, but matching action was not. |
 | Evidence-trained causal learner | A belief can be learned, given a measured defeater, and causally installed. | Five of five updated faster than their own criterion; no migration. |
 | Forty-agent society | Copied evidence, prestige, coordination, and commitment can be separated. | Copied testimony preserved false belief; coordination preserved ritual without belief. |
-| Pretrained Gemma + J-space | A verbalizable latent signal can be tested against output and causal patches. | Readout persisted; causal belief did not. |
+| Pretrained Gemma + J-space | A verbalizable latent signal can be tested against output and causal patches. | Readout rule fired in every rejecting condition, sham included; layer-20 patches had no effect. |
 
 This progression is important. Adding memory, embodiment, or social complexity
 did not automatically create the target. The positive prerequisites became
@@ -329,7 +335,8 @@ explained merely by an inability to understand the question.
 The formation result was not uniform: wildfire failed its leave-one-event-type-
 out formation check. The sham condition also selected rejection in 16/16 cases,
 indicating that the model adopted a more skeptical answer policy than the
-condition label predicted. These are material limitations, not hidden successes.
+condition label predicted. Section 6.3 shows that this also undermines the
+lens readout. These are material limitations.
 
 ### 6.2 No criterion migration
 
@@ -343,28 +350,68 @@ condition's necessity margin exceeded the amputated condition by a mean 4.352
 logits. This is a positive evidence-lineage result, though all copied-condition
 belief outputs still selected rejection.
 
-### 6.3 Readable persistence without causal persistence
+### 6.3 A lens signal without causal persistence
 
 All 16 amputated items satisfied the frozen J-space latent/output-dissociation
-rule. If the study had stopped at probing, this could have been reported as a
-hidden old belief surviving explicit correction.
+rule. Read alone, this could have been reported as a hidden old belief
+surviving explicit correction. The control conditions do not support that
+reading. The same rule fired in 16/16 sham, 16/16 copied, and 16/16 value items,
+and in the 4/16 formed items where the model chose rejection. The rule requires
+a rejecting answer together with a positive necessity-minus-rejection lens score
+in both the formed prompt and the tested prompt across three consecutive layers.
+It therefore fired whenever the model chose rejection, and it did not separate
+the decisive defeater from a sham that left the criterion unmet. These counts
+apply the frozen rule to every condition in
+`artifacts/evidence/pretrained-1/traces.jsonl`; `result.json` reports the rule
+for the amputated condition only.
 
-The intervention falsified that interpretation:
+The preregistered interventions at layer 20 did not support the hidden-belief
+interpretation:
 
 - causal induction at layer 20 passed in 0/16 items;
 - causal removal at layer 20 passed in 0/16 items;
 - mean patch selectivity was 0.013 against a threshold of 2.0; and
 - the complete qualitative result failed leave-one-event-type-out robustness.
 
-The J-space signal was therefore readable but not shown to be the state causing
-the empirical answer. The preregistered verdict is `NOT_SUPPORTED`.
+The J-space signal was readable, but it did not track the defeater, and no
+intervention showed it causing the empirical answer. The preregistered verdict is
+`NOT_SUPPORTED`.
 
-### 6.4 Behavior without false empirical belief
+### 6.4 Exploratory layer sweep
+
+The preregistration fixes layer 20 as the primary causal layer and labels the
+full band sweep exploratory. The sweep is stored in the `patch_sweep` field of
+the 16 amputated belief records in
+`artifacts/evidence/pretrained-1/traces.jsonl`. Mean effects, in logits:
+
+| Layer | Mean induction | Mean removal | Items meeting both thresholds |
+|---|---|---|---|
+| 10 to 22 | -0.023 to 0.125 | -0.156 to 0.125 | 0/16 at every layer |
+| 20 (primary) | 0.055 | -0.148 | 0/16 |
+| 23 | 1.906 | +1.719 | 0/16 (removal has the wrong sign) |
+| 24 | 2.562 | +1.766 | 0/16 (removal has the wrong sign) |
+| 25 | 4.945 | -1.734 | 16/16 |
+| 26 | 5.781 | -3.266 | 16/16 |
+| 27 | 7.469 | -5.008 | 16/16 |
+| 28 | 9.453 | -8.516 | 16/16 |
+| 29 | 10.875 | -10.750 | 16/16 |
+| 30 | 10.891 | -10.773 | 16/16 |
+
+The per-item thresholds are induction of at least 0.50 and removal of at most
+-0.50 logits. Orthogonal control directions were run only at layer 20, so the
+later layers have no selectivity estimate. Replacing the full residual stream
+close to the output can be expected to carry the formed answer whatever that
+state represents, so these late-layer effects do not establish a causally
+persistent belief. They do show that the null result is specific to layer 20.
+A hypothesis located in layers 25 to 30 would need its own preregistered,
+controlled test.
+
+### 6.5 Behavior without false empirical belief
 
 Three of sixteen value-framed items rejected empirical necessity while choosing
 to retain the practice under the scarce-time decision. This modest separation
-reinforces the conceptual point: preserving behavior is not identical to
-preserving its former empirical justification.
+reinforces the conceptual point: preserving behavior and preserving its former
+empirical justification can come apart.
 
 ## 7. What the negative result establishes
 
@@ -372,20 +419,22 @@ The experiment does **not** establish that phantom-like beliefs are impossible
 in language models. It establishes three narrower points.
 
 First, Gemma 4 E4B did not exhibit criterion migration or a causally persistent
-old belief under this protocol. Second, richer memory and representation did
+old belief at the preregistered layer under this protocol. Second, richer memory and representation did
 not make the target appear automatically across the preceding learned-agent
-assays. Third, and most importantly, a preregistered lens signal can disagree
-with a preregistered causal test. That divergence is itself an interpretability
-result: internal content should not be called a hidden belief merely because it
-is decodable or verbalizable.
+assays. Third, a preregistered lens signal can disagree with a preregistered
+causal test, and it can fire as often in a sham condition as after the decisive
+defeater. Internal content should not be called a hidden belief because it is
+decodable or verbalizable; a matched sham and an intervention are both needed.
 
-The study is therefore a successful falsification attempt, not an empty run. It
-identified where the tempting positive story breaks:
+The hidden-belief interpretation was therefore not supported at the
+preregistered layer 20. The study identified where the tempting positive story
+breaks:
 
 ```text
 old-belief-like content is readable
                   │
-                  ├── but it does not survive the causal intervention gates
+                                    ├── but the same signal appears in the sham condition
+                  ├── and it does not pass the layer-20 causal intervention gates
                   ▼
 do not infer a causally controlling hidden belief
 ```
@@ -408,9 +457,11 @@ A stronger test should therefore:
 4. localize a narrower direction with independent discovery and confirmation
    splits;
 5. test behavioral consequences that cannot be solved by answer-pattern
-   matching; and
+   matching;
 6. compare full residual replacement, path patching, feature ablation, and
-   steering under matched controls.
+   steering under matched controls; and
+7. give any later-layer effect suggested by the exploratory sweep its own
+   preregistered test with selectivity controls at that layer.
 
 The human analogy should remain bounded. These assays do not test subjective
 experience, pain, consciousness, or the truth of religious commitments. A
@@ -432,9 +483,12 @@ preserved in repository history.
 
 The canonical public source is
 [`Silentpartnercoding/epistemic-amputation`](https://github.com/Silentpartnercoding/epistemic-amputation).
-The versioned GitHub release and project page are public. An archival Zenodo DOI
-and an arXiv or equivalent preprint remain pending their account-bound author
-and license metadata. Negative and inconclusive stages, the stage-five control
+The versioned GitHub release and project page are public. Release v0.1.1 is
+archived on Zenodo at
+[doi:10.5281/zenodo.22233258](https://doi.org/10.5281/zenodo.22233258); the
+concept DOI for all versions is
+[doi:10.5281/zenodo.22233257](https://doi.org/10.5281/zenodo.22233257). An
+arXiv or equivalent preprint remains pending. Negative and inconclusive stages, the stage-five control
 defect, and the final null remain part of the release.
 
 ## References

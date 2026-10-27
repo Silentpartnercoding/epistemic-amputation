@@ -16,7 +16,8 @@ The preregistered Gemma 4/J-space experiment returned **NOT SUPPORTED**.
 
 - The model explicitly corrected its empirical answer in all 16 decisive-
   evidence cases.
-- A J-space lens still detected an old-belief-like pattern in all 16 cases.
+- A J-space lens still detected an old-belief-like pattern in all 16 cases, and
+  in all 16 sham cases, where the decisive evidence was absent.
 - Directly changing that suspected state changed the answer in 0/16 cases under
   the frozen causal thresholds.
 
