@@ -1,5 +1,14 @@
 # Phantom Schema
 
+> **Correction, October 2026.** The headline result of version 0.1.1 did not
+> survive its own controls. That version reported that the J-space lens could
+> still read the old belief after the model corrected its answer. The same lens
+> rule also fired in all 16 sham, copied, and value control cases, so it tracked
+> the model's rejecting answer and gives no evidence of a surviving belief. The
+> recorded data are unchanged. The layer-20 interventions still found no causal
+> effect, and the verdict remains `NOT_SUPPORTED`. See the corrected
+> [`PAPER.md`](PAPER.md), Section 6.3, for details.
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22233257.svg)](https://doi.org/10.5281/zenodo.22233257)
 
 Public research assays for distinguishing a programmed morphology mismatch from
